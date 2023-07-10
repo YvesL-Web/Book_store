@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # My Apps
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
+    'books.apps.BooksConfig',
 ]
 
 # django-allauth config
@@ -65,7 +66,7 @@ AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend" 
 ACCOUNT_SESSION_REMEMBER = True
 # ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
@@ -162,3 +163,11 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email" 
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_UNIQUE_EMAIL = True 
+
+DEFAULT_FROM_EMAIL = "admin@projectweb.com"
+
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')

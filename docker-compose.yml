@@ -11,6 +11,12 @@ services:
     environment:
       - "DJANGO_SECRET_KEY=django-insecure-=81cqtmd1^y5^=wtupq0nb*46@skjqww39ing0-s&i@2q1*-yf"
       - "DJANGO_DEBUG=True"
+      - "EMAIL_HOST=smtp.gmail.com"
+      - "EMAIL_HOST_USER=landrylarson27@gmail.com"
+      - "EMAIL_HOST_PASSWORD=npuljscnuowmfqgj"
+      - "DEFAULT_FROM_EMAIL=landrylarson27@gmail.com"
+      - "EMAIL_USE_TLS=True"
+      - "EMAIL_PORT = 587"
   db:
     image: postgres:15
     volumes:
